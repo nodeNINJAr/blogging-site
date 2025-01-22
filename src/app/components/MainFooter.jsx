@@ -10,7 +10,7 @@ export function MainFooter() {
             href="https://flowbite.com"
             src="https://flowbite.com/docs/images/logo.svg"
             alt="Flowbite Logo"
-            name="Flowbite"
+            name="Arc Blogs"
           />
           <FooterLinkGroup>
             <FooterLink href="#">About</FooterLink>
@@ -20,7 +20,7 @@ export function MainFooter() {
           </FooterLinkGroup>
         </div>
         <FooterDivider />
-        <FooterCopyright href="#" by="Flowbite™" year={2022} />
+        <FooterCopyright href="#" by="Arc Blogs" year={2025} />
       </div>
     </Footer>
   );
