@@ -21,7 +21,7 @@ export async function TopNavbar() {
       </NavbarBrand>
       <NavbarToggle />
       <NavbarCollapse>
-        <NavbarLink as={Link} href="/" active>
+        <NavbarLink as={Link} href="/">
           Home
         </NavbarLink>
         <NavbarLink as={Link} href="/blogs">
@@ -29,7 +29,7 @@ export async function TopNavbar() {
         </NavbarLink>
         {user ? (
           <>
-            <NavbarLink as={Link} href="/profile">
+            <NavbarLink href="/profile">
               Profile
             </NavbarLink>
             <NavbarLink as={Link} href="/api/auth/logout">
