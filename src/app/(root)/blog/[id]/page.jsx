@@ -24,12 +24,12 @@ const Page = ({ params }) => {
           const data = await response.json();
           setblogDetails(data);
         } catch (error) {
-          console.error("Error fetching blogs:", error);
+          // console.error("Error fetching blogs:", error);
         }
       }
     };
     fetchBlogs();
-  }, [id]); // No need to include `params` here since we only depend on `id`
+  }, [id]); 
 
   if (!blogDetails) {
     return <div className="text-center pt-20">Loading...</div>;
