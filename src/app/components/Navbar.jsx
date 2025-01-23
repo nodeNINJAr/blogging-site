@@ -32,19 +32,12 @@ export async function TopNavbar() {
             <NavbarLink as={Link} href="/profile">
               Profile
             </NavbarLink>
-            {/* <NavbarLink as={Link} href="/api/auth/logout">
-              Sign Out
-            </NavbarLink> */}
-            <LogoutLink>Log out</LogoutLink>
+             {/*  */}
+            <LogoutLink>Sign Out</LogoutLink>
           </>
         ) : (
           <>
-            {/* <NavbarLink as={Link} href="/api/auth/login">
-              Sign In
-            </NavbarLink>
-            <NavbarLink as={Link} href="/api/auth/register">
-              Sign Up
-            </NavbarLink> */}
+            {/*  */}
             <LoginLink postLoginRedirectURL="/profile">Sign in</LoginLink>
             <RegisterLink postLoginRedirectURL="/profile">Sign up</RegisterLink>
           </>
