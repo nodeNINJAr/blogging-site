@@ -11,8 +11,7 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 export async function TopNavbar() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
- 
-  
+
   return (
     <Navbar fluid className="sticky top-0 z-50">
       <NavbarBrand as={Link} href="#">
@@ -38,9 +37,14 @@ export async function TopNavbar() {
             </NavbarLink>
           </>
         ) : (
-          <NavbarLink as={Link} href="/api/auth/login">
-            Sign In
-          </NavbarLink>
+          <>
+            <NavbarLink as={Link} href="/api/auth/login">
+              Sign In
+            </NavbarLink>
+            <NavbarLink as={Link} href="/api/auth/register">
+              Sign Up
+            </NavbarLink>
+          </>
         )}
       </NavbarCollapse>
     </Navbar>
