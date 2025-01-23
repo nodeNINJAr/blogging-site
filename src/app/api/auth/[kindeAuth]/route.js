@@ -1,21 +1,23 @@
-import {handleAuth} from "@kinde-oss/kinde-auth-nextjs/server";
+// import {handleAuth} from "@kinde-oss/kinde-auth-nextjs/server";
+// export const GET = handleAuth();
 
-export const GET = async (req, res) => {
-  // Set CORS headers to allow requests from your Vercel domain
-  res.setHeader('Access-Control-Allow-Origin', 'https://simple-blogging.vercel.app'); // Replace with your domain
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+import { handleAuth } from "@kinde-oss/kinde-auth-nextjs/server";
+
+// Custom handleAuth function with CORS headers
+const customHandleAuth = (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://simple-blogging.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
 
-  // Handle preflight (OPTIONS) requests
+  // Handle preflight requests
   if (req.method === 'OPTIONS') {
     res.status(200).end();
     return;
   }
 
-  try {
-    handleAuth(req, res);  // Use the Kinde SDK to handle the auth logic
-  } catch (error) {
-    console.error('Error handling authentication', error);
-    res.status(500).json({ error: 'Authentication error' });
-  }
+  // Call the original handleAuth function
+  return handleAuth()(req, res);
 };
+
+export const GET = customHandleAuth;
