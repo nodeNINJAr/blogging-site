@@ -3,7 +3,6 @@
 
 import { handleAuth } from "@kinde-oss/kinde-auth-nextjs/server";
 
-// Custom handleAuth function with CORS headers
 const customHandleAuth = (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://simple-blogging.vercel.app');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -16,8 +15,8 @@ const customHandleAuth = (req, res) => {
     return;
   }
 
-  // Call the original handleAuth function
   return handleAuth()(req, res);
 };
 
 export const GET = customHandleAuth;
+export const POST = customHandleAuth;
