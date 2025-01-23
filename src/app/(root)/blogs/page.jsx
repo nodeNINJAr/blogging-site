@@ -6,6 +6,7 @@ const Blogs = async () => {
   const blogs = await fetchBlogs();
   return (
     <>
+     {/* all blogs */}
       <h1 className="text-4xl text-gray-900 text-center uppercase py-10 font-semibold">
         Here is our all blogs
       </h1>
