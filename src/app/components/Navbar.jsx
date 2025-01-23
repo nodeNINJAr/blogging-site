@@ -6,7 +6,7 @@ import {
   NavbarLink,
   NavbarToggle,
 } from "flowbite-react";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { getKindeServerSession, LoginLink, LogoutLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/server";
 
 export async function TopNavbar() {
   const { getUser } = getKindeServerSession();
@@ -32,18 +32,21 @@ export async function TopNavbar() {
             <NavbarLink as={Link} href="/profile">
               Profile
             </NavbarLink>
-            <NavbarLink as={Link} href="/api/auth/logout">
+            {/* <NavbarLink as={Link} href="/api/auth/logout">
               Sign Out
-            </NavbarLink>
+            </NavbarLink> */}
+            <LogoutLink>Log out</LogoutLink>
           </>
         ) : (
           <>
-            <NavbarLink as={Link} href="/api/auth/login">
+            {/* <NavbarLink as={Link} href="/api/auth/login">
               Sign In
             </NavbarLink>
             <NavbarLink as={Link} href="/api/auth/register">
               Sign Up
-            </NavbarLink>
+            </NavbarLink> */}
+            <LoginLink postLoginRedirectURL="/profile">Sign in</LoginLink>
+            <RegisterLink postLoginRedirectURL="/profile">Sign up</RegisterLink>
           </>
         )}
       </NavbarCollapse>
