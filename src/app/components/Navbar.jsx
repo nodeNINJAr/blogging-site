@@ -29,9 +29,10 @@ export async function TopNavbar() {
         </NavbarLink>
         {user ? (
           <>
-            <NavbarLink as={Link} href="/profile">
-              Profile
-            </NavbarLink>
+            <Link href={"/Profile"}>
+          
+            </Link>
+            
             <NavbarLink as={Link} href="/api/auth/logout">
               Sign Out
             </NavbarLink>
